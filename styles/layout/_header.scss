@@ -38,6 +38,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      margin-top: 2rem;
     }
     &-image {
       &-container {
@@ -48,6 +49,7 @@
       width: 20rem;
       height: 18rem;
       border-radius: 2rem;
+      // border-radius: 50%;
       object-fit: cover;
       cursor: pointer;
       position: relative;

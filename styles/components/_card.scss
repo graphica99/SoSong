@@ -88,8 +88,7 @@
     margin-top: 2rem;
     flex-direction: column;
     width: 20rem;
-    // height: 20rem;
-    // padding-bottom: 1rem;
+    cursor: pointer;
   }
   &-main-top-album-card-image {
     width: 19rem;
@@ -98,11 +97,12 @@
     margin-bottom: 1rem;
   }
   &-main-top-album-card-title {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
+    overflow-x: hidden;
   }
   &-main-top-album-card-artist-title {
     padding-top: 0.4rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   &-main-top-album-card-year {
     padding-top: 0.4rem;

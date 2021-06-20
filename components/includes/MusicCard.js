@@ -1,6 +1,7 @@
 import React from "react";
+import axios from "axios";
 
-export default function MusicCard() {
+export default function MusicCard(props) {
   return (
     <div className="main__layout-main-top-music-card main__layout-main-top-music-card">
       <div className="main__layout-main-top-music-card-icons">
@@ -37,17 +38,17 @@ export default function MusicCard() {
       <div className="main__layout-main-top-music-card-trackinfo">
         <div className="main__layout-main-top-music-card-img">
           <img
-            src="/images/header-background.jpg"
+            src={props.imageCover}
             className="main__layout-main-top-music-card-image"
           />
         </div>
         <div className="main__layout-main-top-music-card-title">
-          <h4>No Fugasi</h4>
-          <h5>2021</h5>
+          <h4>{props.trackTitle}</h4>
+          <h5>{props.artist}</h5>
         </div>
       </div>
       <div className="main__layout-main-top-music-card-time">
-        <span>4:03</span>
+        <span>{props.duration}</span>
       </div>
     </div>
   );
