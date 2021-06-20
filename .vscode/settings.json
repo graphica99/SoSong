@@ -1,0 +1,7 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "html.format.endWithNewline": true,
+    "html.format.indentInnerHtml": true,
+    "scssFormatter.singleQuote": true,
+    "editor.formatOnSave": true
+}

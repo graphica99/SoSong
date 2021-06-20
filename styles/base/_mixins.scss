@@ -1,34 +1,47 @@
 *,
 *::before,
-*::after{
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
 }
 
-html{
+html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
-body{
+body {
     font-family: var(--font-secondary);
     overflow-x: hidden;
+    width: 85%;
+    margin: auto;
+    margin-top: 4rem;
+    background: #36d1dc; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #5b86e5,
+        #36d1dc
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #5b86e5,
+        #36d1dc
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
 
 // *{
 //      transition:color ease 0.3s, background-color ease 0.3s;
 // }
-.u-mb-small{
-  margin-bottom: 1.6rem;
+.u-mb-small {
+    margin-bottom: 1.6rem;
 }
-.u-mb-medium{
-   margin-bottom: 3rem;
+.u-mb-medium {
+    margin-bottom: 3rem;
 }
-.u-mb-large{
-   margin-bottom: 5rem;
+.u-mb-large {
+    margin-bottom: 5rem;
 }
-  
+
 //Media query for mobile size
 // @media only screen and (max-width: 600px) {
 //     body{

@@ -1,0 +1,27 @@
+.main__layout {
+  &-header {
+    &-top {
+      &-input {
+        flex-grow: 2;
+        margin-right: 2rem;
+        padding: 1rem;
+        border: none;
+        outline: none;
+        font-size: 1.8rem;
+        padding-left: 4rem;
+        border-radius: 4rem;
+        color: rgba(0, 0, 0, 0.582);
+        &-icon {
+          width: 2rem;
+          height: 2rem;
+          position: absolute;
+          top: 1;
+          left: 0;
+          margin-left: 1.8rem;
+          fill: rgba(0, 0, 0, 0.425);
+          // display: none;
+        }
+      }
+    }
+  }
+}

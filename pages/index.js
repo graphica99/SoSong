@@ -1,29 +1,71 @@
 import React from "react";
-import Link from "next/link";
-const Index = () => {
+import Header from "../components/includes/Header";
+import MusicCard from "../components/includes/MusicCard";
+import AlbumCard from "../components/includes/AlbumCard";
+export default function Index() {
   return (
-    <div className="landing__page-container">
-      <div className="landing__page">
-        <div className="landing__page-logo u-mb-small">
-          <h2 className="landing__page-text">SoSong</h2>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="512"
-            height="512"
-            viewBox="0 0 512 512"
-            className="landing__page-svg"
-          >
-            <title>ionicons-v5-f</title>
-            <path d="M256,448a32,32,0,0,1-18-5.57c-78.59-53.35-112.62-89.93-131.39-112.8-40-48.75-59.15-98.8-58.61-153C48.63,114.52,98.46,64,159.08,64c44.08,0,74.61,24.83,92.39,45.51a6,6,0,0,0,9.06,0C278.31,88.81,308.84,64,352.92,64,413.54,64,463.37,114.52,464,176.64c.54,54.21-18.63,104.26-58.61,153-18.77,22.87-52.8,59.45-131.39,112.8A32,32,0,0,1,256,448Z" />
-          </svg>
+    <>
+      <Header>
+        <h3 className="main__layout-header-text">Top Artist</h3>
+        <div className="main__layout-header-images">
+          <div className="main__layout-header-image-container">
+            <img
+              src="/images/sarkodie.jpg"
+              className="main__layout-header-image"
+            />
+            <div className="main__layout-header-image-overlay">
+              <span className="main__layout-header-image-overlay-text">
+                Sarkodie
+              </span>
+            </div>
+          </div>
+          <div className="main__layout-header-image-container">
+            <img
+              src="/images/kwesi-arthur.jpg"
+              className="main__layout-header-image main__layout-header-image-focused"
+            />
+            <div className="main__layout-header-image-overlay">
+              <span className="main__layout-header-image-overlay-text">
+                Kwesi Arthur
+              </span>
+            </div>
+          </div>
+          <div className="main__layout-header-image-container">
+            <img
+              src="/images/stoneboy.jpg"
+              className="main__layout-header-image"
+            />
+            <div className="main__layout-header-image-overlay">
+              <span className="main__layout-header-image-overlay-text">
+                Stoneboy
+              </span>
+            </div>
+          </div>
+        </div>
+      </Header>
+      <main className="main__layout-main">
+        <div className="main__layout-main-top-music">
+          <h3 className="main__layout-main-top-music-title">Top music</h3>
+          <div className="main__layout-main-top-container">
+            <MusicCard />
+            <MusicCard />
+            <MusicCard />
+            <MusicCard />
+          </div>
         </div>
 
-        <Link href="/browse">
-          <button className="landing__page-button">explore </button>
-        </Link>
-      </div>
-    </div>
+        <div className="main__layout-main-top-album">
+          <h3 className="main__layout-main-top-music-title">Top Album</h3>
+          <div className="main__layout-main-top-album-container">
+            <AlbumCard />
+            <AlbumCard />
+            <AlbumCard />
+            <AlbumCard />
+            <AlbumCard />
+            <AlbumCard />
+          </div>
+        </div>
+      </main>
+    </>
   );
-};
-
-export default Index;
+}
