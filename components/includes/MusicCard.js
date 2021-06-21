@@ -1,9 +1,11 @@
 import React from "react";
-import axios from "axios";
 
 export default function MusicCard(props) {
   return (
-    <div className="main__layout-main-top-music-card main__layout-main-top-music-card">
+    <div
+      onClick={props.onclick}
+      className="main__layout-main-top-music-card main__layout-main-top-music-card"
+    >
       <div className="main__layout-main-top-music-card-icons">
         <span>
           <svg

@@ -1,45 +1,146 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 body {
-    font-family: var(--font-secondary);
-    overflow-x: hidden;
-    width: 85%;
-    margin: auto;
-    margin-top: 4rem;
-    background: #36d1dc; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to right,
-        #5b86e5,
-        #36d1dc
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to right,
-        #5b86e5,
-        #36d1dc
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: var(--font-secondary);
+  overflow-x: hidden;
+  width: 85%;
+  position: relative;
+  margin: auto;
+  margin-top: 4rem;
+  background: #36d1dc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #5b86e5,
+    #36d1dc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #5b86e5,
+    #36d1dc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.music-player-main {
+  //   display: none;
+  visibility: hidden;
+  position: relative;
+  width: 72.3%;
+  background-color: #ffffff;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  height: 10rem;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  //   justify-content: space-around;
+  padding: 1rem;
+  align-items: center;
+  &-image {
+    flex-grow: 1;
+  }
+  &-img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  &-items {
+    flex-grow: 30;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // text-align: center;
+    &-h5 {
+      font-size: 1.3rem;
+    }
+    &-h4 {
+      font-size: 1rem;
+      color: rgb(80, 79, 79);
+    }
+    &-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 2rem;
+      &-prev {
+        width: 3rem;
+        height: 3rem;
+      }
+      &-play {
+        width: 4rem;
+        height: 4rem;
+        fill: #2d758a;
+      }
+      &-next {
+        width: 3rem;
+        height: 3rem;
+      }
+      &-volume {
+        width: 2rem;
+        height: 2rem;
+      }
+      &-progressMain {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: space-between;
+      }
+      &-start {
+      }
+      &-progress {
+        margin: 0 0.5rem;
+        width: 80rem;
+        height: 0.8rem;
+        background-color: #c4c4c4;
+        border-radius: 1.2rem;
+      }
+      &-progressSub {
+        width: 40rem;
+        height: 0.8rem;
+        background-color: #2d758a;
+        border-radius: 1.2rem;
+      }
+      &-end {
+      }
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    cursor: pointer;
+  }
 }
 
 // *{
 //      transition:color ease 0.3s, background-color ease 0.3s;
 // }
 .u-mb-small {
-    margin-bottom: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 .u-mb-medium {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 .u-mb-large {
-    margin-bottom: 5rem;
+  margin-bottom: 5rem;
 }
 
 //Media query for mobile size

@@ -1,6 +1,7 @@
 import Header from "../components/includes/Header";
 import MusicCard from "../components/includes/MusicCard";
 import AlbumCard from "../components/includes/AlbumCard";
+import PlayingCard from "../components/includes/PlayingCard";
 import React, { Component } from "react";
 import axios from "axios";
 export default class index extends Component {
@@ -46,26 +47,61 @@ export default class index extends Component {
     }
     return { trackData, albumData, artistData };
   }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
   render() {
+    var arr = this.props.artistData.data.slice(0, 3);
+    var index = [1, 0, 2];
+    var arrRes = [];
+    for (var i = 0; i < arr.length; i++) {
+      arrRes[index[i]] = arr[i];
+    }
+
+    const displayPlayingCard = (data) => {
+      document.getElementById("music-player-main").style.visibility = "visible";
+      // setTimeout(() => {
+      document.getElementById("music-player-main-items-h5").innerHTML =
+        data.title;
+      document.getElementById("music-player-main-items-h4").innerHTML =
+        data.artist.name;
+      document.getElementById("music-player-main-img").src = data.album.cover;
+    };
+
+    const closeCard = () => {
+      document.getElementById("music-player-main").style.visibility = "hidden";
+    };
     return (
       <>
         <Header>
           <h3 className="main__layout-header-text">Top Artist</h3>
           <div className="main__layout-header-images">
-            {this.props.artistData.data.slice(0, 3).map((data) => (
-              <div className="main__layout-header-image-container">
-                <img
-                  src={data.picture_medium}
-                  className="main__layout-header-image"
-                />
-                <div className="main__layout-header-image-overlay">
-                  <span className="main__layout-header-image-overlay-text">
-                    {data.name}
-                  </span>
+            {
+              //  this.props.artistData.data.slice(0, 3).map((data) => (
+              arrRes.map((data, i) => (
+                // main__layout-header-image-focused
+                // <div className="main__layout-header-image-container">
+                <div
+                  className={
+                    i === 1
+                      ? "main__layout-header-image-container main__layout-header-image-focused"
+                      : "main__layout-header-image-container"
+                  }
+                >
+                  <img
+                    src={data.picture_medium}
+                    className="main__layout-header-image"
+                  />
+                  <div className="main__layout-header-image-overlay">
+                    <span className="main__layout-header-image-overlay-text">
+                      {data.name}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            }
           </div>
         </Header>
         <main className="main__layout-main">
@@ -74,6 +110,7 @@ export default class index extends Component {
             <div className="main__layout-main-top-container">
               {this.props.trackData.data.map((data) => (
                 <MusicCard
+                  onclick={() => displayPlayingCard(data)}
                   imageCover={data.album.cover}
                   trackTitle={data.title}
                   duration={data.duration}
@@ -95,15 +132,10 @@ export default class index extends Component {
                   // albumYear={data.year}
                 />
               ))}
-
-              {/* {console.log(this.props.albumData.data)} */}
-              {/* <AlbumCard />
-              <AlbumCard />
-              <AlbumCard />
-              <AlbumCard />
-              <AlbumCard /> */}
             </div>
           </div>
+
+          <PlayingCard onclose={() => closeCard()} />
         </main>
       </>
     );
