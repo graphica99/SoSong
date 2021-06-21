@@ -20,7 +20,7 @@ export default function PlayingCard(props) {
           id="music-player-main-items-h4"
         ></h4>
         <div className="music-player-main-items-controls">
-          <span>
+          <span onClick={props.prev}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="music-player-main-items-controls-prev"
@@ -30,17 +30,18 @@ export default function PlayingCard(props) {
               <path d="M143.47 64v163.52L416 64v384L143.47 284.48V448H96V64h47.47z" />
             </svg>
           </span>
-          <span>
+          <span id="playPause" onClick={props.playAudio}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="music-player-main-items-controls-play"
               viewBox="0 0 512 512"
+              //   onClick={props.playAudio}
             >
               <title>Play Circle</title>
               <path d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm-56 296V168l144 88z" />
             </svg>
           </span>
-          <span>
+          <span onClick={props.next}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="music-player-main-items-controls-next"
@@ -70,11 +71,25 @@ export default function PlayingCard(props) {
           </span>
         </div>
         <div className="music-player-main-items-controls-progressMain">
-          <span className="music-player-main-items-controls-start">0:00</span>
-          <div className="music-player-main-items-controls-progress">
-            <div className="music-player-main-items-controls-progressSub"></div>
+          <audio src={props.audio} id="music-player-main-audio"></audio>
+          <span
+            className="music-player-main-items-controls-start"
+            id="currentTime"
+          >
+            0:00
+          </span>
+          <div
+            className="music-player-main-items-controls-progress"
+            id="progressContainer"
+          >
+            <div
+              className="music-player-main-items-controls-progressSub"
+              id="progress"
+            ></div>
           </div>
-          <span className="music-player-main-items-controls-end">2:00</span>
+          <span className="music-player-main-items-controls-end" id="endTime">
+            0:00
+          </span>
         </div>
       </div>
       <span className="music-player-main-close" onClick={props.onclose}>
