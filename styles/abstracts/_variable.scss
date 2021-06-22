@@ -1,24 +1,38 @@
 :root {
-    // COLOR VARIABLES
-   --bg-color:#fff;
-   --menu-bg-desktop:#F2F2F2;
-   --header-bg-desktop:#056E8F;
-   --h1-color:#fff;
-   --h3-color:#EAEAEA;
-   --color-secondary:#2D758A;
-   --text-color-white:#fff;
-   --text-color-black:#000000;
+  // COLOR VARIABLES
+  --bg-color: #fff;
+  --menu-bg-desktop: #f2f2f2;
+  --header-bg: #056f8fc0;
+  --h1-color: #fff;
+  --h3-color: #eaeaea;
+  --card-icons: "#000";
+  --text-color: #fff;
+  --text-color-white: #fff;
+  --text-color-black: rgba(0, 0, 0, 0.582);
+  --logo-color-black: rgb(48, 47, 47);
+  --h4-color: rgb(48, 47, 47);
+  --play-color: #2d758a;
+  --progress-bg: #c4c4c4;
+  //FONT VARIABLES
+  --font-primary: "Lato", sans-serif;
+  --font-display: "Open Sans", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+  --font-logo: "Allura", cursive;
+  //BREAK POINT VARIABLES
+  --bp-mobile: 375px;
+  --bp-desktop: 1440px;
+}
 
-    //FONT VARIABLES
-    --font-primary: 'Lato', sans-serif;
-    --font-display: 'Open Sans', sans-serif;
-    --font-secondary:'Montserrat', sans-serif;
-    --font-logo:'Allura', cursive;
-
-
-    //BREAK POINT VARIABLES
-    --bp-mobile: 375px; 
-    --bp-desktop: 1440px; 
-};
-
-
+html[data-color-scheme="dark"] {
+  --bg-color: #000;
+  --menu-bg-desktop: #2b2a2a;
+  --header-bg: #151515d0;
+  --text-color-black: rgba(255, 255, 255, 0.788);
+  --logo-color-black: #fff;
+  --h1-color: #fff;
+  --h3-color: #eaeaea;
+  --h4-color: rgb(185, 184, 184);
+  --card-icons: #43b8db;
+  --play-color: #ffe500;
+  --progress-bg: #000000;
+}

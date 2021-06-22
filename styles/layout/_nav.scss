@@ -21,8 +21,8 @@
     list-style: none;
   }
   &-nav-item {
-    padding-bottom: 1rem;
-    padding-top: 0.3rem;
+    padding-bottom: 1.5rem;
+    padding-top: 1rem;
     & a {
       text-decoration: none;
       color: var(--text-color-black);
@@ -45,7 +45,7 @@
   }
 
   &-header-4 {
-    color: rgb(48, 47, 47);
+    color: var(--h4-color);
     padding-bottom: 1.8rem;
     font-size: 1.4rem;
   }
