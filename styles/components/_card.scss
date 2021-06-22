@@ -32,9 +32,9 @@
       align-items: center;
       padding: 1rem;
       &-image {
-        width: 5.5rem;
-        height: 5rem;
-        border-radius: 1rem;
+        width: 6rem;
+        height: 5.5rem;
+        border-radius: 0.6rem;
         margin-right: 1rem;
       }
       &-title {
@@ -54,8 +54,8 @@
       &-icons {
         &-icon {
           margin-right: 1rem;
-          width: 2.5rem;
-          height: 2.5rem;
+          width: 2.2rem;
+          height: 2.2rem;
           fill: var(--card-icons);
         }
       }
@@ -96,9 +96,9 @@
     cursor: pointer;
   }
   &-main-top-album-card-image {
-    width: 19rem;
-    height: 17rem;
-    border-radius: 1rem;
+    width: 20rem;
+    height: 19rem;
+    border-radius: 0.7rem;
     margin-bottom: 1rem;
   }
   &-main-top-album-card-title {

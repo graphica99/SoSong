@@ -1,0 +1,110 @@
+.music-player-main {
+  //   display: none;
+  visibility: hidden;
+  position: relative;
+  width: 72.3%;
+  background-color: var(--menu-bg-desktop);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  height: 10rem;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  //   justify-content: space-around;
+  padding: 1rem;
+  align-items: center;
+  &-image {
+    flex-grow: 1;
+  }
+  &-img {
+    margin-left: 1rem;
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  &-items {
+    flex-grow: 30;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color-black);
+
+    &-h5 {
+      font-size: 1.3rem;
+    }
+    &-h4 {
+      font-size: 1rem;
+      color: var(--text-color-black);
+    }
+    &-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 2rem;
+      cursor: pointer;
+      &-prev {
+        width: 3rem;
+        height: 3rem;
+        fill: var(--logo-color-black);
+      }
+      &-play {
+        width: 4rem;
+        height: 4rem;
+        fill: var(--play-color);
+      }
+      &-next {
+        width: 3rem;
+        height: 3rem;
+        fill: var(--logo-color-black);
+      }
+      &-volume {
+        width: 2rem;
+        height: 2rem;
+        fill: var(--logo-color-black);
+      }
+      &-progressMain {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+      }
+      &-start {
+      }
+      &-progress {
+        margin: 0 0.5rem;
+        // width: 80rem;
+        width: 90%;
+        height: 0.8rem;
+        background-color: var(--progress-bg);
+        border-radius: 1.2rem;
+      }
+      &-progressSub {
+        width: 0%;
+        height: 100%;
+        background-color: var(--play-color);
+        border-radius: 1.2rem;
+      }
+      &-end {
+      }
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 1rem 2rem;
+    cursor: pointer;
+    &-icon {
+      fill: var(--logo-color-black);
+    }
+  }
+}

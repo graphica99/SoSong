@@ -58,8 +58,9 @@ export default class index extends Component {
     for (var i = 0; i < arr.length; i++) {
       arrRes[index[i]] = arr[i];
     }
-
+    let dataID;
     const displayPlayingCard = (data) => {
+      dataID = data.id;
       document.getElementById("music-player-main").style.visibility = "visible";
       document.getElementById("music-player-main-items-h5").innerHTML =
         data.title;
@@ -67,90 +68,8 @@ export default class index extends Component {
         data.artist.name;
       document.getElementById("music-player-main-img").src = data.album.cover;
       document.getElementById("music-player-main-audio").src = data.preview;
-      var progressContainer = document.getElementById("progressContainer");
-      var progress = document.getElementById("progress");
-      var currentElem = document.getElementById("currentTime");
-      var endTime = document.getElementById("endTime");
-      let music = document.getElementById("music-player-main-audio");
-      music.addEventListener("timeupdate", updateProgressBar);
-
-      function updateProgressBar(e) {
-        if (isPlaying) {
-          const { duration, currentTime } = e.srcElement;
-          // console.log(duration, currentTime);
-          const progressPercentage = (currentTime / duration) * 100;
-          progress.style.width = `${progressPercentage}%`;
-
-          var durationMinute = Math.floor(duration / 60);
-          var durationSeconds = Math.floor(duration % 60);
-          if (durationSeconds) {
-            endTime.innerHTML = `${durationMinute}:${durationSeconds}`;
-          }
-
-          var currentMinute = Math.floor(currentTime / 60);
-          var currentSeconds = Math.floor(currentTime % 60);
-          if (currentSeconds) {
-            currentElem.innerHTML = `${currentMinute}:${currentSeconds}`;
-          }
-        }
-      }
     };
 
-    let songIndex = 0;
-    const next = () => {
-      if (songIndex >= this.props.trackData.data.length) {
-        songIndex = 0;
-      }
-      displayPlayingCard(this.props.trackData.data[songIndex++]);
-    };
-
-    const prev = () => {
-      if (songIndex <= 0) {
-        songIndex = this.props.trackData.data.length - 1;
-      }
-      displayPlayingCard(this.props.trackData.data[songIndex--]);
-    };
-
-    let isPlaying = false;
-    const playAudioController = () => {
-      isPlaying = true;
-      document.getElementById(
-        "playPause"
-      ).innerHTML = `<svg xmlns='http://www.w3.org/2000/svg' className="music-player-main-items-controls-next" viewBox='0 0 512 512'><title>Pause</title><path d='M224 432h-80V80h80zM368 432h-80V80h80z'/></svg>`;
-      document.getElementById("music-player-main-audio").play();
-    };
-
-    const pauseAudioController = () => {
-      isPlaying = false;
-      document.getElementById("playPause").innerHTML = `<svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="music-player-main-items-controls-play"
-      viewBox="0 0 512 512"
-      fill='var(--play-color)'
-    >
-      <title>Play Circle</title>
-      <path d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm-56 296V168l144 88z" />
-    </svg>`;
-      document.getElementById("music-player-main-audio").pause();
-    };
-    const play = () => {
-      isPlaying ? pauseAudioController() : playAudioController();
-    };
-    const closeCard = () => {
-      document.getElementById("music-player-main").style.visibility = "hidden";
-    };
-
-    // var progressContainer = document.getElementById("progressContainer");
-    // var progress = document.getElementById("progress");
-    // let music = document.getElementById("music-player-main-audio");
-
-    // music.addEventListener("timeupdate", updateProgressBar);
-
-    // function updateProgressBar(e) {
-    //   if (isPlaying) {
-    //     console.log(e);
-    //   }
-    // }
     return (
       <>
         <Header>
@@ -190,7 +109,6 @@ export default class index extends Component {
                   artist={data.artist.name}
                 />
               ))}
-              {/* {console.log(this.props.trackData.data)} */}
             </div>
           </div>
 
@@ -202,19 +120,12 @@ export default class index extends Component {
                   albumTitle={data.title}
                   albumArtist={data.artist.name}
                   albumImage={data.cover_medium}
-                  // albumYear={data.year}
                 />
               ))}
             </div>
           </div>
 
-          <PlayingCard
-            onclose={() => closeCard()}
-            playAudio={() => play()}
-            next={() => next()}
-            prev={() => prev()}
-            // pauseAudio={() => pauseAudioController()}
-          />
+          <PlayingCard trackData={this.props.trackData.data} />
         </main>
       </>
     );

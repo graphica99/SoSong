@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import SearchIcon from "../../public/svgs/search-sharp.svg";
 export default function Header(props) {
   const [checked, setChecked] = useState(false);
 
