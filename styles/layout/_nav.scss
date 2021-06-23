@@ -39,7 +39,6 @@
         text-decoration: none;
         color: var(--text-color-black);
         font-size: 1.5rem;
-        color: #fff;
       }
     }
   }
@@ -66,6 +65,25 @@
       padding-left: 1rem;
       &:hover {
         color: rgb(99, 96, 96);
+      }
+    }
+    &__active {
+      background-color: #ff3868;
+      border-radius: 0.5rem;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      margin-bottom: 1rem;
+      .main__layout-svg {
+        fill: white;
+      }
+      & a {
+        text-decoration: none;
+        color: var(--text-color-white);
+        // color: var(--text-color-black);
+        font-size: 1.5rem;
+      }
+      &:hover {
+        color: rgb(255, 255, 255);
       }
     }
   }

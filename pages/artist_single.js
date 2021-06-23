@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/includes/Header";
 import MusicCard from "../components/includes/MusicCard";
 import PlayingCard from "../components/includes/PlayingCard";
 import GenreCard from "../components/includes/AlbumCard";
 import axios from "axios";
-const Songs = ({ trackData, genreData }) => {
+const Songs = ({ trackData }) => {
   const displayPlayingCard = (data) => {
     document.getElementById("music-player-main").style.visibility = "visible";
     document.getElementById("music-player-main-items-h5").innerHTML =
@@ -52,49 +52,27 @@ const Songs = ({ trackData, genreData }) => {
             ))}
           </div>
         </div>
-
-        <div className="main__layout-main-top-album">
-          <h3 className="main__layout-main-top-music-title">Genre</h3>
-          <div className="main__layout-main-top-album-container">
-            {genreData.map((data) => (
-              <GenreCard
-                albumTitle={data.name}
-                albumArtist={data.name}
-                albumImage={data.picture_medium}
-              />
-            ))}
-          </div>
-        </div>
         <PlayingCard trackData={trackData} />
       </main>
     </>
   );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
+  const user_id = ctx.query.user_id;
   const options = {
     method: "GET",
-    url: "https://api.deezer.com/chart/0/tracks",
+    url: `https://api.deezer.com/artist/${user_id}/top?limit=15`,
     headers: {
       "x-rapidapi-key": "f96d3895f5msha2b8b703677b70ep1418a5jsn25b4d8e370f3",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   };
 
-  const genreOptions = {
-    method: "GET",
-    url: "https://api.deezer.com/genre",
-    headers: {
-      "x-rapidapi-key": "f96d3895f5msha2b8b703677b70ep1418a5jsn25b4d8e370f3",
-      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "*",
-    },
-  };
   const response = await axios.request(options);
   const trackData = await response.data;
-  const genreResponse = await axios.request(genreOptions);
-  const genreData = await genreResponse.data;
-  return { props: { trackData: trackData.data, genreData: genreData.data } };
+
+  return { props: { trackData: trackData.data } };
 }
+
 export default Songs;

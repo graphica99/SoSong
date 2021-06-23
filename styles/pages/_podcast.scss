@@ -1,4 +1,4 @@
-.song__main-header {
+.podcast__main-header {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -6,27 +6,27 @@
     margin-top: 2rem;
     margin-right: 2rem;
     margin-bottom: 2rem;
-    width: 17rem;
-    height: 17rem;
+    width: 22rem;
+    height: 22rem;
     border-radius: 1rem;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 }
 
-.song__main-texts-h4 {
+.podcast__main-texts-h4 {
   color: var(--text-color-white);
-  font-size: 2.6rem;
+  font-size: 2rem;
   letter-spacing: 2px;
   font-weight: 400;
 }
-.song__main-texts-h2 {
-  font-size: 3.4rem;
+.podcast__main-texts-h2 {
+  font-size: 2.5rem;
   text-transform: capitalize;
   color: var(--text-color-white);
 }
 
-.song__main-texts-button {
-  margin-top: 5px;
+.podcast__main-texts-button {
+  margin-top: 10px;
   outline: none;
   border: none;
   cursor: pointer;

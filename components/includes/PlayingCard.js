@@ -1,38 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function PlayingCard(props) {
   let trackData = props.trackData;
   let isPlaying = false;
   let songIndex = 0;
-  if (typeof window === "object") {
-    var progressContainer = document.getElementById("progressContainer");
-    var progress = document.getElementById("progress");
-    var currentElem = document.getElementById("currentTime");
-    var endTime = document.getElementById("endTime");
-    let music = document.getElementById("music-player-main-audio");
-    music.addEventListener("timeupdate", updateProgressBar);
-  }
+  useEffect(() => {
+    if (typeof window === "object") {
+      var progressContainer = document.getElementById("progressContainer");
+      var progress = document.getElementById("progress");
+      var currentElem = document.getElementById("currentTime");
+      var endTime = document.getElementById("endTime");
+      let music = document.getElementById("music-player-main-audio");
+      // isPlaying ? music.addEventListener("timeupdate", updateProgressBar) : "";
+      music.addEventListener("timeupdate", updateProgressBar);
+    }
 
-  function updateProgressBar(e) {
-    if (isPlaying) {
-      const { duration, currentTime } = e.srcElement;
-      // console.log(duration, currentTime);
-      const progressPercentage = (currentTime / duration) * 100;
-      progress.style.width = `${progressPercentage}%`;
+    function updateProgressBar(e) {
+      if (isPlaying) {
+        const { duration, currentTime } = e.srcElement;
+        // console.log(duration, currentTime);
+        const progressPercentage = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercentage}%`;
 
-      var durationMinute = Math.floor(duration / 60);
-      var durationSeconds = Math.floor(duration % 60);
-      if (durationSeconds) {
-        endTime.innerHTML = `${durationMinute}:${durationSeconds}`;
-      }
+        var durationMinute = Math.floor(duration / 60);
+        var durationSeconds = Math.floor(duration % 60);
+        if (durationSeconds) {
+          endTime.innerHTML = `${durationMinute}:${durationSeconds}`;
+        }
 
-      var currentMinute = Math.floor(currentTime / 60);
-      var currentSeconds = Math.floor(currentTime % 60);
-      if (currentSeconds) {
-        currentElem.innerHTML = `${currentMinute}:${currentSeconds}`;
+        var currentMinute = Math.floor(currentTime / 60);
+        var currentSeconds = Math.floor(currentTime % 60);
+        if (currentSeconds) {
+          currentElem.innerHTML = `${currentMinute}:${currentSeconds}`;
+        }
       }
     }
-  }
+  }, [props]);
 
   const displayPlayingCard = (data) => {
     document.getElementById("music-player-main").style.visibility = "visible";
@@ -65,6 +68,7 @@ export default function PlayingCard(props) {
   </svg>`;
     document.getElementById("music-player-main-audio").pause();
   };
+
   const play = () => {
     isPlaying ? pauseAudioController() : playAudioController();
   };
