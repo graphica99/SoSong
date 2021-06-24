@@ -32,3 +32,21 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = {
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      "/": { page: "/" },
+      "/album": { page: "/album" },
+      // "/artist_single": { page: "/artist_single" },
+      "/artist": { page: "/artist" },
+      "/podcast": { page: "/podcast" },
+      "/radio": { page: "/radio" },
+      // "/songs": { page: "/songs" },
+      // "/search": { page: "/search" },
+    };
+  },
+};

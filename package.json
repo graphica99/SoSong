@@ -25,7 +25,8 @@
     "next-optimized-images": "^2.6.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sass": "^1.35.1"
+    "sass": "^1.35.1",
+    "touch": "^3.1.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
