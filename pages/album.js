@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../components/includes/Header";
 import axios from "axios";
+import Link from "next/link";
+
 const Album = ({ albumData }) => {
   return (
     <>
@@ -14,7 +16,9 @@ const Album = ({ albumData }) => {
           <div className="song__main-texts">
             <h4 className="song__main-texts-h4">{albumData[0].title}</h4>
             <h2 className="song__main-texts-h2">{albumData[0].artist.name}</h2>
-            <button className="song__main-texts-button">PLAY</button>
+            <Link href={`/album_songs?album_id=${albumData[0].id}`}>
+              <button className="song__main-texts-button">PLAY</button>
+            </Link>
           </div>
         </div>
       </Header>
@@ -23,19 +27,21 @@ const Album = ({ albumData }) => {
           <h3 className="main__layout-main-top-music-title">Top Artist</h3>
           <div className="main__layout-main-top-container-grid">
             {albumData.slice(1, albumData.length).map((data) => (
-              <div className="main__layout-main-top-album-card">
-                <img
-                  className="main__layout-main-top-album-card-image"
-                  src={data.cover_medium}
-                />
-                <h3 className="main__layout-main-top-album-card-title">
-                  {data.title}
-                </h3>
-                <h4 className="main__layout-main-top-album-card-artist-title">
-                  {data.artist.name}
-                </h4>
-                <h5 className="main__layout-main-top-album-card-year"></h5>
-              </div>
+              <Link href={`/album_songs?album_id=${data.id}`}>
+                <div className="main__layout-main-top-album-card">
+                  <img
+                    className="main__layout-main-top-album-card-image"
+                    src={data.cover_medium}
+                  />
+                  <h3 className="main__layout-main-top-album-card-title">
+                    {data.title}
+                  </h3>
+                  <h4 className="main__layout-main-top-album-card-artist-title">
+                    {data.artist.name}
+                  </h4>
+                  <h5 className="main__layout-main-top-album-card-year"></h5>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

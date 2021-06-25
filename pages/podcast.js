@@ -15,7 +15,7 @@ const Podcast = ({ podcastData }) => {
           <div className="podcast__main-texts">
             <h4 className="podcast__main-texts-h4">{podcastData[0].title}</h4>
             <h5 className="podcast__main-texts-h2">
-              {podcastData[0].description}
+              {/* {podcastData[0].description} */}
             </h5>
             <Link href="https://www.deezer.com/show/2268472">
               <button className="song__main-texts-button">PLAY</button>

@@ -5,6 +5,20 @@ export default function Header(props) {
   const router = useRouter();
   const [checked, setChecked] = useState(true);
   const [searchVal, setSearchVal] = useState("");
+  const [toggle, setToggle] = useState(true);
+
+  const showNavController = () => {
+    setToggle((prev) => !prev);
+    if (typeof window === "object") {
+      var nav = document.getElementById("main__layout");
+      if (toggle) {
+        nav.style.transform = "translateY(0)";
+      } else {
+        nav.style.transform = "translateY(-38rem)";
+      }
+    }
+  };
+
   const searchValHandler = (e) => {
     setSearchVal(e.target.value);
   };
@@ -48,6 +62,7 @@ export default function Header(props) {
   return (
     <header className="main__layout-header">
       <div className="main__layout-header-top">
+        {/* <button onClick={() => showNavController()}>show nav</button> */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="512"
@@ -95,6 +110,16 @@ export default function Header(props) {
             </svg>
           )}
         </label>
+
+        <svg
+          onClick={() => showNavController()}
+          xmlns="http://www.w3.org/2000/svg"
+          className="main__layout-header-top-hb"
+          viewBox="0 0 512 512"
+        >
+          <title>Menu</title>
+          <path d="M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z" />
+        </svg>
       </div>
       {props.children}
     </header>

@@ -2,7 +2,7 @@ import Header from "../components/includes/Header";
 import MusicCard from "../components/includes/MusicCard";
 import AlbumCard from "../components/includes/AlbumCard";
 import PlayingCard from "../components/includes/PlayingCard";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 const Index = ({ trackData, albumData, artistData }) => {
   var arr = artistData.slice(0, 3);
@@ -13,7 +13,6 @@ const Index = ({ trackData, albumData, artistData }) => {
   }
 
   const displayPlayingCard = (data) => {
-    dataID = data.id;
     document.getElementById("music-player-main").style.visibility = "visible";
     document.getElementById("music-player-main-items-h5").innerHTML =
       data.title;
@@ -54,15 +53,18 @@ const Index = ({ trackData, albumData, artistData }) => {
         <div className="main__layout-main-top-music">
           <h3 className="main__layout-main-top-music-title">Top music</h3>
           <div className="main__layout-main-top-container">
-            {trackData.map((data) => (
-              <MusicCard
-                onclick={() => displayPlayingCard(data)}
-                imageCover={data.album.cover}
-                trackTitle={data.title}
-                duration={data.duration}
-                artist={data.artist.name}
-              />
-            ))}
+            {trackData.map((data, i) => {
+              return (
+                <MusicCard
+                  id={data.id}
+                  onclick={() => displayPlayingCard(data)}
+                  imageCover={data.album.cover}
+                  trackTitle={data.title}
+                  duration={data.duration}
+                  artist={data.artist.name}
+                />
+              );
+            })}
           </div>
         </div>
 

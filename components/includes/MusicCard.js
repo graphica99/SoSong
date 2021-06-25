@@ -1,41 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function MusicCard(props) {
+  const [fav, setFav] = useState(false);
+
+  const addToFavorite = () => {
+    setFav(!fav);
+    var existing = localStorage.getItem("myFavoriteSongs");
+    existing = existing ? existing.split(",") : [];
+    existing.push(props.id);
+    localStorage.setItem("myFavoriteSongs", existing.toString());
+  };
+
+  const removeFromFavorite = () => {
+    setFav(!fav);
+    localStorage.removeItem(props.trackTitle);
+  };
+
   return (
     <div
       onClick={props.onclick}
       className="main__layout-main-top-music-card main__layout-main-top-music-card"
     >
       <div className="main__layout-main-top-music-card-icons">
-        <span>
+        {fav ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="512"
-            height="512"
+            className="main__layout-main-top-music-card-icons-icon-fill"
             viewBox="0 0 512 512"
-            className="main__layout-main-top-music-card-icons-icon"
+            onClick={() => removeFromFavorite()}
           >
-            <polygon points="496 496 16 496 16 16 48 16 48 464 496 464 496 496" />
-            <path d="M192,432H80V208H192Z" />
-            <path d="M336,432H224V160H336Z" />
-            <path d="M479.64,432h-112V96h112Z" />
+            <title>Heart</title>
+
+            <path d="M256 448l-9-6c-42.78-28.57-96.91-60.86-137-108.32-42.25-50-62.52-101.35-62-157C48.63 114.54 98.46 64 159.08 64c48.11 0 80.1 28 96.92 48.21C272.82 92 304.81 64 352.92 64c60.62 0 110.45 50.54 111.08 112.65.56 55.68-19.71 107-62 157-40.09 47.49-94.22 79.78-137 108.35z" />
           </svg>
-        </span>
-        <span>
+        ) : (
           <svg
-            fill="#000000"
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24px"
-            height="24px"
             className="main__layout-main-top-music-card-icons-icon"
+            onClick={() => addToFavorite()}
+            viewBox="0 0 512 512"
           >
+            <title>Heart</title>
             <path
-              fill-rule="evenodd"
-              d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z"
+              d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="32"
             />
           </svg>
-        </span>
+        )}
+        {/* })} */}
       </div>
       <div className="main__layout-main-top-music-card-trackinfo">
         <div className="main__layout-main-top-music-card-img">

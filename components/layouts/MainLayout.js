@@ -7,8 +7,19 @@ export default class MainLayout extends Component {
   render() {
     return (
       <body>
-        <div className="main__layout">
+        <div
+          className="main__layout-show-spinner"
+          id="main__layout-show-spinner"
+        >
+          <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div className="main__layout" id="main__layout">
           <Head>
+            <link rel="stylesheet" type="text/css" href="/nprogress.css" />
             <link rel="preconnect" href="https://fonts.gstatic.com" />
             <link
               href="https://fonts.googleapis.com/css2?family=Allura&family=Mr+Dafoe&display=swap"

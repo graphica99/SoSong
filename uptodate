@@ -1,8 +1,9 @@
 -clean up the code
 -work on seek function audio
 -work on volume
--when an album is clicked load it in search page ....same for radio
--click on an artist to display artist songs(on homepage)
+-next functionality on longlist of musicc
 
--chart and plus (functionality on track data)
---next functionality on longlist of music
+
+xx-chart and plus (functionality on track data)--replace them with heart icons and save them in local storage
+xx-when an album is clicked load it in search page ....same for radio
+xx--show spinner when navigating a page or performing search

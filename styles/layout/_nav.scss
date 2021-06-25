@@ -12,6 +12,18 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 2rem;
+    width: 100%;
+    &-mobile {
+      display: none;
+      // display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      &-icon {
+        fill: white;
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
   }
   &-sidebar--logo {
     margin: auto;
@@ -21,6 +33,7 @@
     list-style: none;
   }
   &-nav-item {
+    // text-align: center;
     padding-bottom: 1.5rem;
     padding-top: 1rem;
     & a {
@@ -54,6 +67,7 @@
     flex-direction: column;
   }
   &-main-music-item {
+    // text-align: center;
     align-self: start;
     color: rgb(48, 47, 47);
     padding-bottom: 1rem;
@@ -85,6 +99,101 @@
       &:hover {
         color: rgb(255, 255, 255);
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  body {
+    width: 100%;
+    height: 100vh;
+    margin-top: 0rem;
+  }
+
+  .main__layout {
+    transform: translateY(-38rem);
+    transition: all 0.3s;
+    &-nav {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 2rem;
+      width: 100%;
+      &-mobile {
+        // display: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &-icon {
+          fill: var(--logo-color-black);
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+    }
+    &-nav-item {
+      // text-align: center;
+      padding-bottom: 1.5rem;
+      padding-top: 1rem;
+      & a {
+        text-decoration: none;
+        color: var(--text-color-black);
+        font-size: 1.5rem;
+        &:hover {
+          color: rgb(99, 96, 96);
+        }
+      }
+      &__active {
+        background-color: #ff3868;
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        border-radius: 0.5rem;
+        padding: 0.5rem 0.3rem;
+        & a {
+          text-decoration: none;
+          color: var(--text-color-black);
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    &-sidebar {
+      // border-radius: 5rem  ;
+      text-align: center;
+      transform: translateY(0rem);
+      z-index: 10;
+      grid-row: 1 / 2;
+      grid-column: 1 / -1;
+    }
+
+    &-main-music-item {
+      align-self: center;
+      justify-content: center;
+      &__active {
+        background-color: #ff3868;
+        text-align: center;
+        border-radius: 0.5rem;
+        // padding: 0.5rem 1rem;
+        width: 50%;
+        margin-bottom: 1rem;
+        .main__layout-svg {
+          fill: white;
+        }
+        & a {
+          text-decoration: none;
+          color: var(--text-color-white);
+          // color: var(--text-color-black);
+          font-size: 1.5rem;
+        }
+        &:hover {
+          color: rgb(255, 255, 255);
+        }
+      }
+    }
+    &-sidebar--logo {
+      // margin: auto;
+      padding-bottom: 0rem;
     }
   }
 }
