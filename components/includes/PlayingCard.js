@@ -11,8 +11,29 @@ export default function PlayingCard(props) {
       var currentElem = document.getElementById("currentTime");
       var endTime = document.getElementById("endTime");
       let music = document.getElementById("music-player-main-audio");
+      let volumeProgressContainer = document.getElementById(
+        "music-player-main-items-controls-volume-dialog"
+      );
+
       // isPlaying ? music.addEventListener("timeupdate", updateProgressBar) : "";
       music.addEventListener("timeupdate", updateProgressBar);
+      progressContainer.addEventListener("click", setProgressBar);
+      volumeProgressContainer.addEventListener("click", setVolume);
+    }
+
+    function setVolume(e) {
+      let music = document.getElementById("music-player-main-audio");
+      let volumeProgress = document.getElementById(
+        "music-player-main-items-controls-volume-dialog-control"
+      );
+      var width = this.clientWidth;
+
+      // console.log((volWidth / 100).toFixed(1));
+
+      var clickX = e.offsetX;
+      var volWidth = (clickX / width) * 100;
+      music.volume = (volWidth / 100).toFixed(1);
+      volumeProgress.style.width = `${volWidth}%`;
     }
 
     function updateProgressBar(e) {
@@ -36,6 +57,26 @@ export default function PlayingCard(props) {
       }
     }
   }, [props]);
+
+  function showVolume() {
+    if (typeof window === "object") {
+      var volId = document.getElementById(
+        "music-player-main-items-controls-volume-dialog"
+      );
+
+      volId.style.display = "inline-block";
+    }
+  }
+
+  function setProgressBar(e) {
+    var width = this.clientWidth;
+    var clickX = e.offsetX;
+    let music = document.getElementById("music-player-main-audio");
+    const { duration, currentTime } = music;
+    const progressPercentage = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercentage}%`;
+    music.currentTime = (clickX / width) * duration;
+  }
 
   const displayPlayingCard = (data) => {
     document.getElementById("music-player-main").style.visibility = "visible";
@@ -142,10 +183,22 @@ export default function PlayingCard(props) {
             </svg>
           </span>
           <span>
+            <div
+              className="music-player-main-items-controls-volume-dialog"
+              id="music-player-main-items-controls-volume-dialog"
+            >
+              <div
+                className="music-player-main-items-controls-volume-dialog-control"
+                id="music-player-main-items-controls-volume-dialog-control"
+              ></div>
+            </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="music-player-main-items-controls-volume"
               viewBox="0 0 512 512"
+              onClick={() => {
+                showVolume();
+              }}
             >
               <title>Volume High</title>
               <path
