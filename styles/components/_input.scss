@@ -26,3 +26,34 @@
     }
   }
 }
+
+@media only screen and (max-width: 992px) {
+  .main__layout {
+    &-header {
+      &-top {
+        &-input {
+          flex-grow: 2;
+          margin-right: 2rem;
+          padding: 0.7rem;
+          border: none;
+          outline: none;
+          font-size: 1.6rem;
+          padding-left: 4rem;
+          border-radius: 4rem;
+          background-color: var(--bg-color);
+          color: var(--text-color-black);
+          &-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            position: absolute;
+            top: 1;
+            left: 0;
+            margin-left: 1.2rem;
+            fill: var(--text-color-black);
+            // display: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -111,9 +111,10 @@
   }
 
   .main__layout {
-    transform: translateY(0rem);
+    transform: translateY(-38rem);
     transition: all 0.3s;
     &-sidebar {
+      // padding: 2rem 0rem;
       // display: none;
     }
     &-nav {

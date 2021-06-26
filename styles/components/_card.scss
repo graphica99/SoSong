@@ -202,6 +202,7 @@
   .main__layout {
     &-main {
       // text-align: center;
+      padding: 1rem;
       &-top-container {
         width: 100%;
         display: flex;
@@ -227,13 +228,16 @@
         // width: 100%;
         // justify-content: space-between;
         // align-items: center;
+        padding: 1rem 0rem;
         &-image {
           width: 4.3rem;
           height: 3.9rem;
         }
-
+        &-time {
+          display: none;
+        }
         &-title {
-          width: 18rem;
+          width: 16rem;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -273,6 +277,23 @@
             color: var(--text-color-black);
           }
         }
+      }
+      &-main-top-album-container {
+        display: flex;
+        width: 72rem;
+        padding-top: 2rem;
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+        color: var(--text-color-black);
+      }
+
+      &-main-top-album-card-image {
+        width: 20rem;
+        height: 19rem;
+        border-radius: 0.7rem;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
       }
     }
   }
