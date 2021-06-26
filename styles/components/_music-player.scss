@@ -145,22 +145,22 @@
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
       rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
     height: 10rem;
-    position: fixed;
+    // position: fixed;
+    // position: sticky;
     // top: 0;
     // z-index: 200;
     // overflow-y: scroll;
     // overflow-x: hidden;
     left: 50%;
     transform: translate(-50%, 0);
-    bottom: 0;
+    // top: 100rem;
+    bottom: 0rem;
     display: flex;
     flex-direction: row;
-    -webkit-backface-visibility: hidden;
-    //   justify-content: space-around;
+    // -webkit-backface-visibility: hidden;
     padding: 1rem;
     align-items: center;
     &-image {
-      // flex-grow: 1;
     }
     &-items {
       // flex-grow: 30;

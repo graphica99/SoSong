@@ -113,7 +113,6 @@
     width: 80%;
     margin: auto;
     margin-top: 4rem;
-    // height: 90vh;
   }
 
   .main__layout-header {
@@ -156,6 +155,9 @@
   body {
     width: 100%;
     margin-top: 0rem;
+    height: 900vh;
+    position: relative;
+
     // background: none;
   }
   .main__layout {
@@ -193,8 +195,8 @@
     }
     &-image {
       // margin: 1rem;
-      width: 8rem;
-      height: 8rem;
+      width: 7rem;
+      height: 7rem;
       &-overlay {
         &-text {
           color: white;
