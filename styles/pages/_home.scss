@@ -1,7 +1,7 @@
 .main__layout {
   background-color: var(--bg-color);
   width: 100%;
-  position: relative;
+  // position: absolute;
   display: grid;
   grid-template-columns: 18rem 5fr;
   grid-template-rows: 1fr 4fr;
@@ -21,6 +21,7 @@
   .main__layout {
     display: grid;
     // height: 90rem;
+    // position: absolute;
     grid-template-columns: 17rem 1fr;
     grid-template-rows: 1fr;
     // grid-template-rows: 10%;

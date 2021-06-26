@@ -1,8 +1,6 @@
 .main__layout {
   &-header {
     background-color: var(--header-bg);
-    // background-image: linear-gradient(var(--header-bg)),
-    //   url("../../public/images/header-background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center right;
