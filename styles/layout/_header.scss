@@ -169,6 +169,9 @@
   }
   .main__layout-header {
     // display: none;
+    &-text {
+      padding-left: 0.6rem;
+    }
     &-top {
       width: 100%;
       display: flex;
@@ -191,7 +194,7 @@
       }
     }
     &-images {
-      justify-content: space-between;
+      justify-content: space-evenly;
     }
     &-image {
       // margin: 1rem;
