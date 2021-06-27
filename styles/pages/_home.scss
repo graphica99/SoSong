@@ -19,11 +19,12 @@
 
 @media only screen and (max-width: 992px) {
   .main__layout {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     // height: 90rem;
     // position: absolute;
-    grid-template-columns: 17rem 1fr;
-    grid-template-rows: 1fr;
+    // grid-template-columns: 17rem 1fr;
+    // grid-template-rows: 20rem;
     // grid-template-rows: 10%;
   }
 }

@@ -8,11 +8,13 @@ export default function SideBar(props) {
   const showNavController = () => {
     setToggle((prev) => !prev);
     if (typeof window === "object") {
-      var nav = document.getElementById("main__layout");
+      var nav = document.getElementById("main__layout-sidebar");
       if (toggle) {
-        nav.style.transform = "translateY(0)";
+        // nav.style.transform = "translateY(0)";
+        nav.style.display = "flex";
       } else {
-        nav.style.transform = "translateY(-38rem)";
+        // nav.style.transform = "translateY(-42rem)";
+        nav.style.display = "none";
       }
     }
   };
@@ -41,7 +43,7 @@ export default function SideBar(props) {
   const router = useRouter();
   // console.log(router.pathname);
   return (
-    <nav className="main__layout-sidebar">
+    <nav className="main__layout-sidebar" id="main__layout-sidebar">
       <div className="main__layout-nav">
         <div className="main__layout-nav-mobile" id="main__layout-nav-mobile">
           <input

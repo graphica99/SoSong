@@ -144,6 +144,7 @@
     bottom: 0;
     right: 0;
     width: 100%;
+    height: 10rem;
     // overflow-x: hidden;
     // transform: translate(-50%, 0);
     &-image {
@@ -160,14 +161,28 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-left: 0rem;
+        // padding-left: 0rem;
         cursor: pointer;
         &-volume {
           width: 2rem;
           height: 2rem;
           fill: var(--logo-color-black);
           position: relative;
-
+          &-prev {
+            width: 2rem;
+            height: 2rem;
+            fill: var(--logo-color-black);
+          }
+          &-play {
+            width: 3rem;
+            height: 3rem;
+            fill: var(--play-color);
+          }
+          &-next {
+            width: 2rem;
+            height: 2rem;
+            fill: var(--logo-color-black);
+          }
           &-dialog {
             display: none;
             position: absolute;

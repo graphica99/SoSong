@@ -10,11 +10,13 @@ export default function Header(props) {
   const showNavController = () => {
     setToggle((prev) => !prev);
     if (typeof window === "object") {
-      var nav = document.getElementById("main__layout");
+      var nav = document.getElementById("main__layout-sidebar");
       if (toggle) {
-        nav.style.transform = "translateY(0)";
+        nav.style.display = "flex";
+        nav.style.transform = "translateX(0)";
       } else {
-        nav.style.transform = "translateY(-38rem)";
+        nav.style.transform = "translateX(-60rem)";
+        nav.style.display = "none";
       }
     }
   };
