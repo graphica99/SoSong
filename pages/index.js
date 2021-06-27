@@ -20,6 +20,11 @@ const Index = ({ trackData, albumData, artistData }) => {
       data.artist.name;
     document.getElementById("music-player-main-img").src = data.album.cover;
     document.getElementById("music-player-main-audio").src = data.preview;
+
+    // var progress = document.getElementById("progress");
+    // console.log(progress);
+    // console.log("progress");
+    // progress.style.width = "0%";
   };
 
   return (

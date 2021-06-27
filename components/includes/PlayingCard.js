@@ -17,6 +17,7 @@ export default function PlayingCard(props) {
 
       // isPlaying ? music.addEventListener("timeupdate", updateProgressBar) : "";
       music.addEventListener("timeupdate", updateProgressBar);
+      music.addEventListener("ended", next);
       progressContainer.addEventListener("click", setProgressBar);
       volumeProgressContainer.addEventListener("click", setVolume);
     }
@@ -86,27 +87,38 @@ export default function PlayingCard(props) {
       data.artist.name;
     document.getElementById("music-player-main-img").src = data.album.cover;
     document.getElementById("music-player-main-audio").src = data.preview;
+    play();
+    // var progress = document.getElementById("progress");
+    // console.log(progress);
+    // console.log("progress");
+    // progress.style.width = "0%";
   };
 
   const playAudioController = () => {
     isPlaying = true;
-    document.getElementById(
-      "playPause"
-    ).innerHTML = `<svg xmlns='http://www.w3.org/2000/svg' className="music-player-main-items-controls-next" viewBox='0 0 512 512'><title>Pause</title><path d='M224 432h-80V80h80zM368 432h-80V80h80z'/></svg>`;
-    document.getElementById("music-player-main-audio").play();
+    document.getElementById("playPause").innerHTML = `<svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="music-player-main-items-controls-next"
+    viewBox="0 0 512 512"
+  >
+    <title>Pause</title>
+    <path d="M224 432h-80V80h80zM368 432h-80V80h80z" />
+  </svg>`;
+    var audio = document.getElementById("music-player-main-audio");
+    audio.play();
   };
 
   const pauseAudioController = () => {
     isPlaying = false;
     document.getElementById("playPause").innerHTML = `<svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="music-player-main-items-controls-play"
-    viewBox="0 0 512 512"
-    fill='var(--play-color)'
-  >
-    <title>Play Circle</title>
-    <path d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm-56 296V168l144 88z" />
-  </svg>`;
+        xmlns="http://www.w3.org/2000/svg"
+        className="music-player-main-items-controls-play"
+        viewBox="0 0 512 512"
+        fill="var(--play-color)"
+      >
+        <title>Play Circle</title>
+        <path d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm-56 296V168l144 88z" />
+      </svg>`;
     document.getElementById("music-player-main-audio").pause();
   };
 
@@ -119,6 +131,7 @@ export default function PlayingCard(props) {
       songIndex = 0;
     }
     displayPlayingCard(trackData[songIndex++]);
+    play();
   };
 
   const prev = () => {
@@ -126,6 +139,7 @@ export default function PlayingCard(props) {
       songIndex = trackData.length - 1;
     }
     displayPlayingCard(trackData[songIndex--]);
+    play();
   };
 
   const closeCard = () => {
